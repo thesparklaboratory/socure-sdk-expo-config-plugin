@@ -1,0 +1,48 @@
+{
+  "name": "@thesparklaboratory/socure-sdk-expo-config-plugin",
+  "version": "0.1.0",
+  "description": "Config plugin to auto configure rn-socure-sdk on prebuild",
+  "main": "build/withSocure.js",
+  "types": "build/withSocure.d.ts",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thesparklaboratory/socure-sdk-expo-config-plugin"
+  },
+  "files": [
+    "build",
+    "app.plugin.js"
+  ],
+  "scripts": {
+    "build": "expo-module build",
+    "clean": "expo-module clean",
+    "lint": "expo-module lint",
+    "test": "expo-module test",
+    "prepare": "expo-module prepare",
+    "prepublishOnly": "expo-module prepublishOnly",
+    "expo-module": "expo-module"
+  },
+  "keywords": [
+    "expo",
+    "react-native",
+    "socure"
+  ],
+  "jest": {
+    "preset": "expo-module-scripts"
+  },
+  "peerDependencies": {
+    "expo": "^46.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@expo/config-types": "^46.0.2",
+    "eslint": "^8.23.0",
+    "expo": "^46.0.2",
+    "expo-build-properties": "^0.3.0",
+    "expo-module-scripts": "^2.0.0",
+    "jest": "^26.0.0",
+    "prettier": "^2.2.1",
+    "react": "^18.0.0"
+  },
+  "upstreamPackage": "rn-socure-sdk"
+}
