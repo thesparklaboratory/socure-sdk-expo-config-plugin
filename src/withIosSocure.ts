@@ -13,7 +13,7 @@ export const withIosSocure: ConfigPlugin<{
   username?: string;
 }> = (config, props) => {
   config = withInfoPlist(config, (config) => {
-    config.modResults.socurePublicKey = props.authToken;
+    config.modResults.socurePublicKey = props.publicKey;
     return config;
   });
 
@@ -25,11 +25,11 @@ export const withIosSocure: ConfigPlugin<{
 
       let contents = await promises.readFile(file, "utf8");
       contents =
-        "plugin 'cocoapods-user-defined-build-types'\nenable_user_defined_build_types!\n";
+        "plugin 'cocoapods-user-defined-build-types'\nenable_user_defined_build_types!\n" + contents;
       contents = mergeContents({
         tag: `socure-sdk-expo-config-plugin`,
         src: contents,
-        newSrc: `  pod 'SocureSdk', :build_type => :dynamic_framework, :git =>'git@github.com:socure-inc/socure-ios-sdk.git'`,
+        newSrc: `  pod 'SocureSdk', :build_type => :dynamic_framework, :git =>'git@github.com:socure-inc/socure-docv-sdk-ios.git'`,
         anchor: /use_native_modules/,
         // We can't go after the use_native_modules block because it might have parameters, causing it to be multi-line (see react-native template).
         offset: 0,

@@ -18,7 +18,19 @@ After installing this npm package, add the [config plugin](https://docs.expo.io/
 ```json
 {
   "expo": {
-    "plugins": ["@thesparklaboratory/socure-sdk-expo-config-plugin"]
+    "android": {
+      "permissions": [
+        "CAMERA"
+      ]
+    },
+    "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to verify your identity."
+      }
+    },
+    "plugins": ["@thesparklaboratory/socure-sdk-expo-config-plugin", {
+      "publicKey": "YOUR_PUBLIC_KEY"
+    }]
   }
 }
 ```
@@ -30,12 +42,24 @@ Next, rebuild your app as described in the ["Adding custom native code"](https:/
 The plugin provides props for extra customization. Every time you change the props or plugins, you'll need to rebuild (and `prebuild`) the native app. If no extra properties are added, defaults will be used.
 
 - `publicKey` (_string_): Public key for accessing socure docv sdk.
+- `authToken` (_string_): Socure references this in their RN wrapper.
+- `username` (_string_): Socure references this in their RN wrapper.
 
 #### Example
 
 ```json
 {
   "expo": {
+    "android": {
+      "permissions": [
+        "CAMERA"
+      ]
+    },
+    "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to verify your identity."
+      }
+    },
     "plugins": [
       [
         "@sparklaboratory/socure-sdk-expo-config-plugin",
