@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.withAndroidSocure = void 0;
 const config_plugins_1 = require("@expo/config-plugins");
-const expo_build_properties_1 = require("expo-build-properties");
 const generateCode_1 = require("@expo/config-plugins/build/utils/generateCode");
+const expo_build_properties_1 = require("expo-build-properties");
 const withKotlinGradle_1 = require("./withKotlinGradle");
 const KOTLIN_VERSION = "1.6.10";
 const withAndroidSocure = (config, props) => {
@@ -16,7 +16,8 @@ const withAndroidSocure = (config, props) => {
     if (props.authToken || props.username) {
         config = (0, config_plugins_1.withGradleProperties)(config, (config) => {
             config.modResults = config.modResults.filter((item) => {
-                if (item.type === "property" && ["authToken", "username"].indexOf(item.key) !== -1) {
+                if (item.type === "property" &&
+                    ["authToken", "username"].indexOf(item.key) !== -1) {
                     return false;
                 }
                 return true;
@@ -51,7 +52,10 @@ const withAndroidSocure = (config, props) => {
     });
     config = (0, config_plugins_1.withStringsXml)(config, (config) => {
         config_plugins_1.AndroidConfig.Strings.setStringItem([
-            { $: { name: 'socurePublicKey', translatable: 'false' }, _: props.publicKey },
+            {
+                $: { name: "socurePublicKey", translatable: "false" },
+                _: props.publicKey,
+            },
         ], config.modResults);
         return config;
     });

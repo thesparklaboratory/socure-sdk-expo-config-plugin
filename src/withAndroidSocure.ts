@@ -5,8 +5,8 @@ import {
   withGradleProperties,
   withStringsXml,
 } from "@expo/config-plugins";
-import { withBuildProperties } from "expo-build-properties";
 import { mergeContents } from "@expo/config-plugins/build/utils/generateCode";
+import { withBuildProperties } from "expo-build-properties";
 
 import { withKotlinGradle } from "./withKotlinGradle";
 
@@ -27,7 +27,10 @@ export const withAndroidSocure: ConfigPlugin<{
   if (props.authToken || props.username) {
     config = withGradleProperties(config, (config) => {
       config.modResults = config.modResults.filter((item) => {
-        if (item.type === "property" && ["authToken", "username"].indexOf(item.key) !== -1) {
+        if (
+          item.type === "property" &&
+          ["authToken", "username"].indexOf(item.key) !== -1
+        ) {
           return false;
         }
         return true;
@@ -65,11 +68,13 @@ export const withAndroidSocure: ConfigPlugin<{
     return config;
   });
 
-
   config = withStringsXml(config, (config) => {
     AndroidConfig.Strings.setStringItem(
       [
-        { $: { name: 'socurePublicKey', translatable: 'false' }, _: props.publicKey },
+        {
+          $: { name: "socurePublicKey", translatable: "false" },
+          _: props.publicKey,
+        },
       ],
       config.modResults
     );

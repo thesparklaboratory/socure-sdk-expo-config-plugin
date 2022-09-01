@@ -19,7 +19,8 @@ const withIosSocure = (config, props) => {
         async (config) => {
             const file = path_1.default.join(config.modRequest.platformProjectRoot, "Podfile");
             let contents = await fs_1.promises.readFile(file, "utf8");
-            contents = "plugin 'cocoapods-user-defined-build-types'\nenable_user_defined_build_types!\n";
+            contents =
+                "plugin 'cocoapods-user-defined-build-types'\nenable_user_defined_build_types!\n";
             contents = (0, generateCode_1.mergeContents)({
                 tag: `socure-sdk-expo-config-plugin`,
                 src: contents,

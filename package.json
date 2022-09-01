@@ -1,5 +1,5 @@
 {
-  "name": "@thesparklaboratory/socure-sdk-expo-config-plugin",
+  "name": "@sparklaboratory/socure-sdk-expo-config-plugin",
   "version": "0.1.0",
   "description": "Config plugin to auto configure rn-socure-sdk on prebuild",
   "main": "build/withSocure.js",

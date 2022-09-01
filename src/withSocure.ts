@@ -3,17 +3,13 @@ import { ConfigPlugin, createRunOncePlugin } from "@expo/config-plugins";
 import { withAndroidSocure } from "./withAndroidSocure";
 import { withIosSocure } from "./withIosSocure";
 
-const withSocure: ConfigPlugin<
-  {
-    publicKey: string;
-    username?: string;
-    authToken?: string;
-  }
-> = (config, props) => {
+const withSocure: ConfigPlugin<{
+  publicKey: string;
+  username?: string;
+  authToken?: string;
+}> = (config, props) => {
   if (!props.publicKey) {
-    throw new Error(
-      "Socure publicKey is required"
-    );
+    throw new Error("Socure publicKey is required");
   }
 
   config = withAndroidSocure(config, {
