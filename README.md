@@ -9,8 +9,11 @@ Config plugin to auto-configure `rn-socure-sdk` when the native code is generate
 > This package cannot be used in the "Expo Go" app because [it requires custom native code](https://docs.expo.io/workflow/customizing/).
 > First install the package with yarn, npm, or [`expo install`](https://docs.expo.io/workflow/expo-cli/#expo-install).
 
-```sh
-expo install git+ssh://git@github.com:socure-inc/socure-sdk-react-native.git @sparklaboratory/socure-sdk-expo-config-plugin
+** For now, manually add the following to package.json **
+
+```
+    "@sparklaboratory/socure-sdk-expo-config-plugin": "git+ssh://git@github.com:thesparklaboratory/socure-sdk-expo-config-plugin.git",
+    "rn-socure-sdk": "git+ssh://git@github.com:thesparklaboratory/socure-docv-wrapper-react-native.git"
 ```
 
 After installing this npm package, add the [config plugin](https://docs.expo.io/guides/config-plugins/) to the [`plugins`](https://docs.expo.io/versions/latest/config/app/#plugins) array of your `app.json` or `app.config.js`:
