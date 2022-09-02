@@ -38,6 +38,10 @@ After installing this npm package, add the [config plugin](https://docs.expo.io/
 }
 ```
 
+Install cocoapods user defined build types:
+
+`sudo gem install cocoapods-user-defined-build-types`
+
 Next, rebuild your app as described in the ["Adding custom native code"](https://docs.expo.io/workflow/customizing/) guide.
 
 ## API
