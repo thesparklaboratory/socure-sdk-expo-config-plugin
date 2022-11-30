@@ -29,7 +29,7 @@ export const withIosSocure: ConfigPlugin<{
       contents = mergeContents({
         tag: `socure-sdk-expo-config-plugin`,
         src: contents,
-        newSrc: `  pod 'SocureSdk', :build_type => :dynamic_framework, :git =>'git@github.com:socure-inc/socure-docv-sdk-ios.git'`,
+        newSrc: `  pod 'SocureSdk', :build_type => :dynamic_framework, :git =>'https://github.com/socure-inc/socure-docv-sdk-ios.git'`,
         anchor: /use_native_modules/,
         // We can't go after the use_native_modules block because it might have parameters, causing it to be multi-line (see react-native template).
         offset: 0,
